@@ -1,12 +1,15 @@
 package com.ace.noteme;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateInstanceActivity extends AppCompatActivity {
@@ -16,6 +19,13 @@ public class CreateInstanceActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#FDD835"));
+
+        actionBar.setBackgroundDrawable(colorDrawable);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_instance_activity);
         EditText Title = findViewById(R.id.NoteMeTitle);
@@ -25,7 +35,7 @@ public class CreateInstanceActivity extends AppCompatActivity {
 
         Intent editIntent = getIntent();
         if (editIntent.hasExtra("NoteMeUpdate")) {
-            setTitle("NoteMeUpdate");
+            setTitle("Update");
             Title.setText(editIntent.getStringExtra("NoteMeTitle"));
             Description.setText(editIntent.getStringExtra("NoteMeDescription"));
 
@@ -41,8 +51,8 @@ public class CreateInstanceActivity extends AppCompatActivity {
                 Intent NewIntent = new Intent();
 
                 if (!nText.isEmpty()) {
-                    int id = getIntent().getIntExtra("NoteKey", -1);
-                    if (id != -1) NewIntent.putExtra("NoteKey", id);
+                    int id = getIntent().getIntExtra("NoteMeKey", -1);
+                    if (id != -1) NewIntent.putExtra("NoteMeKey", id);
                     NewIntent.putExtra(NoteMeTitle, nTitle);
                     NewIntent.putExtra(NoteMeDescription, nText);
                     setResult(RESULT_OK, NewIntent);
