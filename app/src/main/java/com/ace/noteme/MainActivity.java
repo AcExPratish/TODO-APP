@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
-
                 if (!wantEdit) {
                     if (result.getResultCode() == RESULT_OK) {
                         String nTitle = result.getData().getStringExtra(CreateInstanceActivity.NoteMeTitle);
@@ -77,14 +76,12 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-
                     if (result.getResultCode() == RESULT_OK) {
                         int id = result.getData().getIntExtra("NoteMeKey", -1);
                         if (id == -1) {
                             Toast.makeText(MainActivity.this, "Something went wrong while updating!", Toast.LENGTH_SHORT).show();
                             return;
                         }
-
                         String nTitle = result.getData().getStringExtra(CreateInstanceActivity.NoteMeTitle);
                         String nText = result.getData().getStringExtra(CreateInstanceActivity.NoteMeDescription);
                         notesEn updateNote = new notesEn(nTitle, nText);
@@ -96,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         newAdapter.setOnItemClickListener(new NewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(notesEn note) {
@@ -109,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,9 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 activityResultLauncher.launch(newIntent);
             }
         });
-
     }
-
 
     public static void deleteNote(notesEn note) {
         builder.setMessage("Are you sure ?").setTitle("Delete Note")
@@ -135,10 +130,8 @@ public class MainActivity extends AppCompatActivity {
                         dialog.cancel();
                     }
                 });
-
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
     }
 
     @Override
@@ -149,13 +142,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()) {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
-
-
 }

@@ -21,7 +21,6 @@ public abstract class NoteMeDatabase extends RoomDatabase {
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     static NoteMeDatabase getDatabase(final Context context) {
-
         if (INSTANCE == null) {
             synchronized (NoteMeDatabase.class) {
                 if (INSTANCE == null) {

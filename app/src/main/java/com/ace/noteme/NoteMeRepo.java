@@ -12,11 +12,9 @@ public class NoteMeRepo {
     private LiveData<List<notesEn>> myNotes;
 
     NoteMeRepo(Application application) {
-
         NoteMeDatabase db = NoteMeDatabase.getDatabase(application);
         myNotesDao = db.notesdao();
         myNotes = myNotesDao.getAllNotes();
-
     }
 
     LiveData<List<notesEn>> getAllNotes() {
@@ -24,29 +22,20 @@ public class NoteMeRepo {
     }
 
     void insert(notesEn noteToBeInserted) {
-
         NoteMeDatabase.databaseWriteExecutor.execute(() -> {
             myNotesDao.insert(noteToBeInserted);
-
         });
     }
 
     void deleteNote(notesEn noteToBeDeleted) {
-
         NoteMeDatabase.databaseWriteExecutor.execute(() -> {
             myNotesDao.delete(noteToBeDeleted);
-
         });
-
     }
 
     void updateNote(notesEn noteToBeUpdated) {
-
         NoteMeDatabase.databaseWriteExecutor.execute(() -> {
             myNotesDao.update(noteToBeUpdated);
-
         });
-
     }
-
 }

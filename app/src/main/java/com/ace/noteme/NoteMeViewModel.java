@@ -19,19 +19,19 @@ public class NoteMeViewModel extends AndroidViewModel {
         allNotes = myRepo.getAllNotes();
     }
 
-    LiveData<List<notesEn>> getAllNotes(){
+    LiveData<List<notesEn>> getAllNotes() {
         return allNotes;
     }
 
-    public void insert(notesEn note){
+    public void insert(notesEn note) {
         myRepo.insert(note);
     }
 
-    public void deleteNote(notesEn noteToBeDeleted){
+    public void deleteNote(notesEn noteToBeDeleted) {
         myRepo.deleteNote(noteToBeDeleted);
     }
 
-    public void update(notesEn noteToBeUpdated){
+    public void update(notesEn noteToBeUpdated) {
         myRepo.updateNote(noteToBeUpdated);
     }
 }

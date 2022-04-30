@@ -25,7 +25,6 @@ public class notesEn {
         return id;
     }
 
-
     public String getNotesText() {
         return notesText;
     }

@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateInstanceActivity extends AppCompatActivity {
 
-
     public static final String NoteMeTitle = "com.ace.noteme.title";
     public static final String NoteMeDescription = "com.ace.noteme.description";
 
