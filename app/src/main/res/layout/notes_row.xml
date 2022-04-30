@@ -44,6 +44,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="9dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/ic_baseline_close_24" />
+        android:src="@drawable/ic_baseline_delete_24" />
 
 </RelativeLayout>

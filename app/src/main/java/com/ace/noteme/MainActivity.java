@@ -82,7 +82,10 @@ public class MainActivity extends AppCompatActivity {
                         notesEn insertNote = new notesEn(nTitle, nText);
                         myViewModel.insert(insertNote);
                         Toast.makeText(MainActivity.this, "Note Created", Toast.LENGTH_SHORT).show();
-                    } else {
+                    }
+                    else if(result.getResultCode() == RESULT_CANCELED){
+                    }
+                    else {
                         Toast.makeText(MainActivity.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
