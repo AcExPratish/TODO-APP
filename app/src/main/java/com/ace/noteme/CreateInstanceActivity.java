@@ -58,7 +58,7 @@ public class CreateInstanceActivity extends AppCompatActivity {
                     setResult(RESULT_OK, NewIntent);
                     finish();
                 } else {
-                    Toast.makeText(CreateInstanceActivity.this, "Description field cannot be empty!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateInstanceActivity.this, "Input field's cannot be empty!", Toast.LENGTH_SHORT).show();
                 }
 
             }
