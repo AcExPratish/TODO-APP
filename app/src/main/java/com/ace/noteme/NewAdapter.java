@@ -20,10 +20,21 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
     private List<notesEn> notesData = new ArrayList<>();
     private OnItemClickListener listener;
 
-    public void setNotesData(List<notesEn> notesData) {
-        this.notesData.clear();
-        this.notesData = notesData;
-        notifyDataSetChanged();
+    @Override
+    public int getItemCount() {
+        return notesData.size();
+    }
+
+    public int getPosition() {
+        return getPosition();
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(notesEn note);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -42,13 +53,10 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
         holder.NoteMeDescription.setText(data.getNotesText());
     }
 
-    @Override
-    public int getItemCount() {
-        return notesData.size();
-    }
-
-    public int getPosition() {
-        return getPosition();
+    public void setNotesData(List<notesEn> notesData) {
+        this.notesData.clear();
+        this.notesData = notesData;
+        notifyDataSetChanged();
     }
 
 
@@ -85,15 +93,6 @@ public class NewAdapter extends RecyclerView.Adapter<NewAdapter.ViewHolder> {
 
         }
     }
-
-    public interface OnItemClickListener {
-        void onItemClick(notesEn note);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
-    }
-
 }
 
 

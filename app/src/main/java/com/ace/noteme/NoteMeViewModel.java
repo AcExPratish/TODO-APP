@@ -23,10 +23,6 @@ public class NoteMeViewModel extends AndroidViewModel {
         return allNotes;
     }
 
-    public void insert(notesEn note) {
-        myRepo.insert(note);
-    }
-
     public void deleteNote(notesEn noteToBeDeleted) {
         myRepo.deleteNote(noteToBeDeleted);
     }
@@ -34,4 +30,9 @@ public class NoteMeViewModel extends AndroidViewModel {
     public void update(notesEn noteToBeUpdated) {
         myRepo.updateNote(noteToBeUpdated);
     }
+
+    public void insert(notesEn note) {
+        myRepo.insert(note);
+    }
+
 }

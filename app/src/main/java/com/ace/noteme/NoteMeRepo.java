@@ -21,12 +21,6 @@ public class NoteMeRepo {
         return myNotes;
     }
 
-    void insert(notesEn noteToBeInserted) {
-        NoteMeDatabase.databaseWriteExecutor.execute(() -> {
-            myNotesDao.insert(noteToBeInserted);
-        });
-    }
-
     void deleteNote(notesEn noteToBeDeleted) {
         NoteMeDatabase.databaseWriteExecutor.execute(() -> {
             myNotesDao.delete(noteToBeDeleted);
@@ -36,6 +30,11 @@ public class NoteMeRepo {
     void updateNote(notesEn noteToBeUpdated) {
         NoteMeDatabase.databaseWriteExecutor.execute(() -> {
             myNotesDao.update(noteToBeUpdated);
+        });
+    }
+    void insert(notesEn noteToBeInserted) {
+        NoteMeDatabase.databaseWriteExecutor.execute(() -> {
+            myNotesDao.insert(noteToBeInserted);
         });
     }
 }
